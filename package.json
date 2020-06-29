@@ -1,0 +1,64 @@
+{
+  "name": "MeetingRoomScheduler",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "test": "jest",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@react-native-community/async-storage": "^1.11.0",
+    "@react-native-community/datetimepicker": "git://github.com/react-native-community/datetimepicker.git#feat/minute-interval",
+    "@react-native-community/masked-view": "^0.1.10",
+    "@react-native-community/netinfo": "^5.9.4",
+    "@react-navigation/native": "^5.5.1",
+    "@react-navigation/stack": "^5.5.1",
+    "jetifier": "^1.6.6",
+    "lodash": "^4.17.15",
+    "moment": "^2.27.0",
+    "react": "16.11.0",
+    "react-dom": "^16.13.1",
+    "react-native": "0.62.2",
+    "react-native-camera": "^3.30.0",
+    "react-native-gesture-handler": "^1.6.1",
+    "react-native-raw-bottom-sheet": "^2.2.0",
+    "react-native-reanimated": "^1.9.0",
+    "react-native-safe-area-context": "^3.0.5",
+    "react-native-screens": "^2.8.0",
+    "react-native-vector-icons": "^6.6.0",
+    "react-native-webview": "^10.3.2",
+    "react-redux": "^7.2.0",
+    "redux": "^4.0.5",
+    "redux-logger": "^3.0.6",
+    "redux-persist": "^6.0.0",
+    "redux-thunk": "^2.3.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.2",
+    "@babel/runtime": "^7.6.2",
+    "@jonny/react-native-mock": "^0.4.2",
+    "@react-native-community/eslint-config": "^0.0.5",
+    "babel-jest": "^24.9.0",
+    "detox": "^17.0.2",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "enzyme-to-json": "^3.5.0",
+    "eslint": "^6.5.1",
+    "jest": "^24.9.0",
+    "jest-serializer-enzyme": "^1.0.0",
+    "metro-react-native-babel-preset": "^0.58.0",
+    "react-test-renderer": "16.11.0"
+  },
+  "jest": {
+    "preset": "react-native",
+    "transformIgnorePatterns": [
+      "./node_modules/(?!(react-native|react-native-raw-bottom-sheet|react-native-gesture-handler|react-native-webview|react-native-camera|react-native-vector-icons|@react-native-community)/)"
+    ],
+    "setupFiles": [
+      "./tests/setup.js"
+    ]
+  }
+}
