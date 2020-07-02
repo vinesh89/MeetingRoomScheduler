@@ -4,6 +4,7 @@ import _  from 'lodash';
 import { Colors } from '../Theme/index';
 import { getHourFromTimeSlot, getMinsFromTimeSlot, sortListingBy } from '../Utilities/utility';
 import SchedulerCardItem from './schedulerCardItem';
+import PropTypes from 'prop-types';
 
 const SchedulerList = (props) => {
     const {data, timeSlot, sortBy} = props;
@@ -32,7 +33,6 @@ const SchedulerList = (props) => {
         if(!_.isEmpty(sortBy.id)) {
             filteredScheduleList = sortListingBy(filteredScheduleList, sortBy.id, 'desc');
         }
-        console.log("FilterList: ", filteredScheduleList);
         setScheduleList(filteredScheduleList);
     }
 
@@ -57,6 +57,12 @@ const styles = StyleSheet.create({
     container: {
         paddingTop: 10,
     }
-})
+});
+
+SchedulerList.PropTypes = {
+    data: PropTypes.array.isRequired,
+    timeSlot: PropTypes.string.isRequired,
+    sortBy: PropTypes.object
+}
 
 export default React.memo(SchedulerList);

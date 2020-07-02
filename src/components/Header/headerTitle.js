@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, Text, StyleSheet } from 'react-native';
 import { Fonts } from '../Theme/index';
+import PropTypes from 'prop-types';
 
 const HeaderTitle = (props) => {
     return(
@@ -23,3 +24,7 @@ const styles = StyleSheet.create({
         fontWeight: Fonts.headerTitle.fontWeight
     }
 });
+
+HeaderTitle.propTypes = {
+    title: PropTypes.string.isRequired
+}

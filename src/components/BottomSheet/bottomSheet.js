@@ -2,6 +2,7 @@ import React, {useRef, useEffect} from 'react';
 import { Dimensions } from 'react-native';
 import RBSheet from "react-native-raw-bottom-sheet";
 import { Colors } from '../Theme/index';
+import PropTypes from 'prop-types';
 
 const SCREEN_HEIGHT = Dimensions.get('screen').height;
 
@@ -45,6 +46,16 @@ const BottomSheet = (props) => {
             {props.children}
         </RBSheet>
     )
+}
+
+BottomSheet.defaultProps = {
+    heightInpercentage: 45
+}
+
+BottomSheet.propTypes = {
+    heightInpercentage: PropTypes.number.isRequired,
+    closeSheet: PropTypes.func.isRequired,
+    children: PropTypes.element.isRequired
 }
 
 export default BottomSheet;

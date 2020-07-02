@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, Keyboard, TouchableOpacity } from 'react-native
 import DateTimePicker from '@react-native-community/datetimepicker';
 import {Colors, Theme} from '../Theme';
 import {DateToStringFormater, TimeToStringFormater} from '../Utilities/utility';
+import PropsTypes from 'prop-types';
 
 const DateTimePickerComponent = (props) => {
     const {mode, onChange, title, minuteInterval} = props;
@@ -46,8 +47,6 @@ const DateTimePickerComponent = (props) => {
     )
 }
 
-export default DateTimePickerComponent;
-
 const styles = StyleSheet.create({
     container: {
         paddingTop: Theme.topSpacing,
@@ -65,3 +64,18 @@ const styles = StyleSheet.create({
         marginTop: 5,
     }
 });
+
+DateTimePickerComponent.defaultProps = {
+    mode: 'date',
+    title: 'Date',
+    minuteInterval: 0
+}
+
+DateTimePickerComponent.propTypes = {
+    mode: PropsTypes.string,
+    title: PropsTypes.string,
+    minuteInterval: PropsTypes.number,
+    onChange: PropsTypes.func.isRequired,
+}
+
+export default DateTimePickerComponent;

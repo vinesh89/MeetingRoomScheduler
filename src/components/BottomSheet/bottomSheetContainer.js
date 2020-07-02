@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native
 import { Theme, Fonts, Colors } from '../Theme/index';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Button from '../Button/button';
+import PropTypes from 'prop-types';
 
 const BottomSheetContainer = (props) => {
     const {onApply, onReset, sortBy} = props;
@@ -89,6 +90,12 @@ const styles = StyleSheet.create({
         borderRadius: 20,
     }
 });
+
+BottomSheetContainer.propTypes = {
+    onApply: PropTypes.func.isRequired,
+    onReset: PropTypes.func.isRequired,
+    sortBy: PropTypes.object.isRequired
+}
 
 export default BottomSheetContainer;
 

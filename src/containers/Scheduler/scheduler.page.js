@@ -94,7 +94,6 @@ const Scheduler = ({ navigation, getScheduleList, scheduleList, isError }) => {
         return <SchedulerList data={scheduleList} timeSlot={timeSlot} sortBy={sortParam}/>
       }
 
-      //When no network connection and our list is empty
       if (!netInfo.isConnected) {
         return <NetworkStatus />
       }
@@ -117,9 +116,9 @@ const Scheduler = ({ navigation, getScheduleList, scheduleList, isError }) => {
               minuteInterval={30}
               onChange={onTimeChange}
             />
-            <SchedulerHeaderSection title="Rooms" actionTitle="Sort" onAction={() => handleSort()}/>
+            <SchedulerHeaderSection title="Rooms" actionTitle="Sort" iconName="sort" onAction={() => handleSort()}/>
             {bottomSheetVisible && 
-              <BottomSheet heightInpercentage={65} closeSheet={() => setBottomSheetVisible(false)}>
+              <BottomSheet closeSheet={() => setBottomSheetVisible(false)}>
                 <BottomSheetContainer onApply={onApplyAction} onReset={onResetAction} sortBy={sortParam}/>
               </BottomSheet>
             }
@@ -128,21 +127,6 @@ const Scheduler = ({ navigation, getScheduleList, scheduleList, isError }) => {
         </>
     );
 };
-
-const mapStateToProps = state => ({
-  scheduleList: state.scheduleReducer.schedules,
-  isLoading: state.scheduleReducer.loading,
-  isError: state.scheduleReducer.error
-})
-
-const mapDispatchToProps = dispatch => ({
-  getScheduleList: () => dispatch(GetScheduleList())
-});
-
-export default React.memo(connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Scheduler));
 
 const styles = StyleSheet.create({
   conatiner:{
@@ -161,3 +145,18 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   }
 });
+
+const mapStateToProps = state => ({
+  scheduleList: state.scheduleReducer.schedules,
+  isLoading: state.scheduleReducer.loading,
+  isError: state.scheduleReducer.error
+})
+
+const mapDispatchToProps = dispatch => ({
+  getScheduleList: () => dispatch(GetScheduleList())
+});
+
+export default React.memo(connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Scheduler));
